@@ -15,5 +15,12 @@ RUN curl -fsSL -o /usr/local/bin/drush "https://github.com/drush-ops/drush/relea
 
 RUN drush --version
 
+RUN echo "memory_limit = -1" >  /usr/local/etc/php/conf.d/custom.ini \
+    && echo "error_log = /var/www/html/logs/php_error.log" >> /usr/local/etc/php/conf.d/custom.ini \
+    && echo "log_errors = On" >> /usr/local/etc/php/conf.d/custom.ini \
+    && echo "upload_max_filesize = 256M" >> /usr/local/etc/php/conf.d/custom.ini \
+    && echo "post_max_size = 64M" >> /usr/local/etc/php/conf.d/custom.ini \
+    && echo "max_execution_time = 600" >> /usr/local/etc/php/conf.d/custom.ini
+
 # Update the entry point of the application
 ENTRYPOINT ["drush"]
