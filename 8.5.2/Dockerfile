@@ -1,4 +1,4 @@
-FROM jungleran/drupal-base:8.5.1-apache
+FROM jungleran/drupal-base:8.5.2-apache
 
 MAINTAINER Jungle Ran <jungle.r@intergreat.com>
 
